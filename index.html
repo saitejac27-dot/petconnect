@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawNest — Pet Adoption Management System | Find Your New Best Friend</title>
+  <meta name="description" content="PawNest connects loving adopters with shelters and pet owners. Browse verified adoptable dogs, cats, rabbits, and birds, and submit adoption requests today.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/default-pet.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="logo" aria-label="PawNest Home">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          PawNest
+        </a>
+
+        <ul class="nav-links">
+          <!-- Populated dynamically by app.js -->
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="hero-tag">
+              <span>🐾</span> Verified Ethical Pet Adoptions
+            </div>
+            <h1 id="hero-heading" class="hero-title">
+              Find Your New <span>Best Friend</span> Today.
+            </h1>
+            <p class="hero-desc">
+              Every pet deserves a safe, caring, and forever home. PawNest bridges the gap between animal lovers, responsible owners, and rescue organizations with transparent, stress-free adoption.
+            </p>
+            <div class="hero-actions">
+              <a href="pets.html" class="btn btn-primary btn-lg" id="btn-hero-browse">Browse Available Pets</a>
+              <a href="register.html" class="btn btn-secondary btn-lg" id="btn-hero-shelter">List a Pet / Register</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <h3>850+</h3>
+                <p>Happy Adoptions</p>
+              </div>
+              <div class="stat-item">
+                <h3>120+</h3>
+                <p>Verified Shelters</p>
+              </div>
+              <div class="stat-item">
+                <h3>100%</h3>
+                <p>Health Checked</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-image-wrapper">
+            <div class="hero-img-card">
+              <img 
+                src="uploads/demo-buddy.jpg" 
+                alt="Happy Golden Retriever ready for adoption" 
+                onerror="this.onerror=null; this.src='uploads/default-pet.svg';"
+              >
+            </div>
+            <div class="hero-floating-badge">
+              <div class="floating-icon">❤️</div>
+              <div>
+                <strong style="display: block; font-size: 0.95rem; color: var(--text-main);">Buddy Found a Family</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Golden Retriever • 2 years</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & Quick Filter Bar -->
+    <section class="container" aria-label="Search and Category Filters">
+      <div class="search-filter-card">
+        <form id="hero-quick-search-form" action="pets.html" method="GET">
+          <div class="filter-grid">
+            <div class="filter-group">
+              <label class="filter-label" for="home-search">Search Keyword</label>
+              <input type="text" id="home-search" name="search" class="input-field" placeholder="Search by pet name, breed, or personality...">
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="home-type">Animal Type</label>
+              <select id="home-type" name="animal_type" class="select-field">
+                <option value="all">All Animals</option>
+                <option value="dog">Dogs</option>
+                <option value="cat">Cats</option>
+                <option value="rabbit">Rabbits</option>
+                <option value="bird">Birds</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="home-location">Location</label>
+              <input type="text" id="home-location" name="location" class="input-field" placeholder="e.g. New York, Boston">
+            </div>
+
+            <div class="filter-group">
+              <button type="submit" class="btn btn-primary btn-block" style="height: 48px;" id="btn-hero-search">
+                Find Pets
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-badges" role="navigation" aria-label="Quick pet species categories">
+        <a href="pets.html" class="category-badge-btn active"><span>🐾</span> All Animals</a>
+        <a href="pets.html?animal_type=dog" class="category-badge-btn"><span>🐕</span> Dogs & Puppies</a>
+        <a href="pets.html?animal_type=cat" class="category-badge-btn"><span>🐈</span> Cats & Kittens</a>
+        <a href="pets.html?animal_type=rabbit" class="category-badge-btn"><span>🐇</span> Rabbits</a>
+        <a href="pets.html?animal_type=bird" class="category-badge-btn"><span>🦜</span> Birds</a>
+      </div>
+    </section>
+
+    <!-- Featured Adoptable Pets -->
+    <section class="section-padding container" aria-labelledby="featured-heading">
+      <div class="section-header">
+        <span class="section-tag">Ready for Adoption</span>
+        <h2 id="featured-heading" class="section-title">Meet Some of Our Companions</h2>
+        <p>These affectionate pets are waiting patiently in loving shelters and foster homes for someone just like you.</p>
+      </div>
+
+      <div id="pets-grid" class="pets-grid">
+        <!-- Rendered dynamically by pets.js -->
+        <div class="loading-spinner" style="grid-column: 1 / -1;">
+          <div class="spinner"></div>
+          <p>Loading adoptable pets...</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="pets.html" class="btn btn-secondary btn-lg" id="btn-view-all-pets">View All Adoptable Pets →</a>
+      </div>
+    </section>
+
+    <!-- How Adoption Works -->
+    <section class="section-padding" style="background-color: var(--bg-surface-soft);" aria-labelledby="how-it-works-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple & Transparent Process</span>
+          <h2 id="how-it-works-heading" class="section-title">How PawNest Adoption Works</h2>
+          <p>We've designed a straightforward, caring workflow that respects both pet welfare and adopter schedules.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Discover & Connect</h3>
+            <p>Filter verified listings by animal type, breed, age, and location. Read comprehensive descriptions and medical checks.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Submit Request</h3>
+            <p>Send an adoption application directly to the owner or rescue center detailing your lifestyle and home environment.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Welcome Home</h3>
+            <p>Once approved, meet your new pet, complete the adoption paperwork, and welcome your companion into their forever home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits of Adopting -->
+    <section class="section-padding container" aria-labelledby="benefits-heading">
+      <div class="section-header">
+        <span class="section-tag">Why Choose Adoption</span>
+        <h2 id="benefits-heading" class="section-title">The Joy and Impact of Adopting</h2>
+        <p>Choosing to adopt transforms an animal's world while bringing unconditional companionship into yours.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">❤️</div>
+          <h3>Save a Precious Life</h3>
+          <p>Adoption frees up shelter space and gives a deserving dog, cat, or small pet a second chance at happiness.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🩺</div>
+          <h3>Health & Vet Checked</h3>
+          <p>All PawNest listings include clear medical logs, vaccination records, and veterinary health statuses.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <h3>Lifelong Guidance</h3>
+          <p>Our network of pet owners and shelters provides tips on diet, acclimatization, training, and care.</p>
+        </div>
+      </div>
+
+      <!-- Shelter CTA Banner -->
+      <div class="cta-banner">
+        <div class="cta-content">
+          <h2>Are You a Pet Owner or Animal Shelter?</h2>
+          <p>Create free listings, review adopter applications, and find loving homes for your animals easily.</p>
+        </div>
+        <div>
+          <a href="register.html" class="btn btn-secondary btn-lg" style="background-color: white; color: var(--primary);">List Your Pets Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo" style="color: white; margin-bottom: 1rem;">
+            <svg viewBox="0 0 24 24" style="fill: #A7F3D0;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            PawNest
+          </a>
+          <p style="color: rgba(255,255,255,0.7); font-size: 0.92rem;">
+            A compassionate pet adoption and management platform dedicated to ethical rehoming and welfare.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="pets.html">Browse All Pets</a></li>
+            <li><a href="pets.html?animal_type=dog">Adopt Dogs</a></li>
+            <li><a href="pets.html?animal_type=cat">Adopt Cats</a></li>
+            <li><a href="pets.html?animal_type=rabbit">Adopt Rabbits</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html">About PawNest</a></li>
+            <li><a href="guidelines.html">Adoption Guidelines</a></li>
+            <li><a href="contact.html">Support & Contact</a></li>
+            <li><a href="register.html">Shelter Registration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">📍 100 Pet Haven Way, Suite 400</p>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">✉️ help@pawnest.org</p>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">📞 +1 (800) 555-PAWS</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 PawNest Pet Adoption Management System. All rights reserved.</p>
+        <p>Built for College Full-Stack Lab Internals • Node.js & MySQL</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/pets.js"></script>
+</body>
+</html>
